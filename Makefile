@@ -4,7 +4,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = main.c swap.c push.c rotate.c
+SRC = main.c swap.c push.c rotate.c reverse.c sort_below_five.c
 
 OBJS = $(SRC:.c=.o)
 

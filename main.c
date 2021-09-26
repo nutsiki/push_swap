@@ -184,26 +184,112 @@ t_piles	*init_piles(void)
 	return (piles);
 }
 
-void 	afficherlistab(t_piles *piles, int i)
+void 	afficherlist(t_list *list, char i)
 {
-	t_list *list_a;
-	t_list *list_b;
+	t_list *list_tmp;
+	int cpt;
 
-	list_a = piles->list_a;
-	list_b = piles->list_b;
-
-	while (list_a != NULL)
+	list_tmp = list;
+	cpt = 0;
+	while (list_tmp != NULL)
 	{
-		printf("%d pile a %d\n", i, list_a->content);
-		list_a = list_a->next;
+		printf("element[%d] de list_%c = %d\n", cpt, i, list_tmp->content);
+		list_tmp = list_tmp->next;
+		cpt++;
 	}
-	while (list_b != NULL)
-	{
-		printf("%d pile b %d\n", i, list_b->content);
-		list_b = list_b->next;
-	}
-	printf("\n ____________________ \n");
+	printf("-------------------------------\n");
 }
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
+}
+
+void	ft_lstadd_back(t_list **alst, t_list *new)
+{
+	t_list *ll;
+
+	if (!alst || !new)
+		return ;
+	if (!*alst)
+	{
+		*alst = new;
+		new->next = NULL;
+		return ;
+	}
+	ll = ft_lstlast(*alst);
+	ll->next = new;
+	new->next = NULL;
+}
+
+t_list *fill_piles_c(t_piles *piles)
+{
+	t_list *c;
+	t_list *tmp_a;
+
+	c = NULL;
+	tmp_a = piles->list_a;
+	while (tmp_a != NULL)
+	{
+		ft_lstadd_back(&c, ft_lstnew(tmp_a->content));
+		tmp_a = tmp_a->next;
+	}
+	return (c);
+}
+
+t_list *sort_piles(t_piles *piles)
+{
+	t_list *c;
+	t_list *tmp;
+	int i;
+	int tmp_nb;
+
+	c = fill_piles_c(piles);
+	i = -1;
+	while (i)
+	{
+		i = -1;
+		tmp = c;
+		while (tmp->next != NULL)
+		{
+			if (tmp->content > tmp->next->content)
+			{
+				tmp_nb = tmp->content;
+				tmp->content = tmp->next->content;
+				tmp->next->content = tmp_nb;
+				i--;
+			}
+			tmp = tmp->next;
+		}
+		i++;
+	}
+	return (c);
+}
+
+int	is_already_sorted(t_piles *piles)
+{
+	t_list *tmp_a;
+	t_list *tmp_c;
+
+	tmp_a = piles->list_a;
+	tmp_c = piles->sorted;
+	while (tmp_a->next != NULL)
+	{
+		if (tmp_a->content == tmp_c->content)
+		{
+			tmp_a = tmp_a->next;
+			tmp_c = tmp_c->next;
+		}
+		else
+			return(0);
+	}
+	return (1);
+}
+
 
 int	main(int argc, char **argv)
 {
@@ -214,16 +300,13 @@ int	main(int argc, char **argv)
 		exit(0);
 	piles->list_a = fill_list(argc, argv);
 	piles->size = ft_lstsize(piles->list_a);
-//	piles = swap_a(piles);
-//	piles = push_b(piles);
-	piles = rotate_a(piles);
-	afficherlistab(piles, 1);
-	piles = push_b(piles);
-//	afficherlistab(piles, 2);
-//	piles = swap_b(piles);
-	piles = push_b(piles);
-	afficherlistab(piles, 2);
-	piles = rotate_b(piles);
-	afficherlistab(piles, 3);
+	piles->sorted = sort_piles(piles);
+	if (is_already_sorted(piles))
+		return (1);
+	if (piles->size <= 5)
+		sort_below_five(piles);
+	afficherlist(piles->list_a, 'a');
+
+
 
 }

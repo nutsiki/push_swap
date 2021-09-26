@@ -9,7 +9,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86d0dd3b-22cf-438d-953f-49f635c8b7d8" name="Default Changelist" comment="" />
+    <list default="true" id="86d0dd3b-22cf-438d-953f-49f635c8b7d8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/push.c" beforeDir="false" afterPath="$PROJECT_DIR$/push.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/push_swap.h" beforeDir="false" afterPath="$PROJECT_DIR$/push_swap.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rotate.c" beforeDir="false" afterPath="$PROJECT_DIR$/rotate.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swap.c" beforeDir="false" afterPath="$PROJECT_DIR$/swap.c" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +55,16 @@
       <workItem from="1629205248163" duration="6350000" />
       <workItem from="1629213348962" duration="1890000" />
       <workItem from="1629284115502" duration="4066000" />
+      <workItem from="1629898418082" duration="861000" />
+      <workItem from="1632138507853" duration="2171000" />
+      <workItem from="1632141846637" duration="92000" />
+      <workItem from="1632145500941" duration="4831000" />
+      <workItem from="1632394148520" duration="3828000" />
+      <workItem from="1632398559639" duration="1886000" />
+      <workItem from="1632403666837" duration="6355000" />
+      <workItem from="1632416588417" duration="3389000" />
+      <workItem from="1632485993625" duration="8849000" />
+      <workItem from="1632671505469" duration="8134000" />
     </task>
     <servers />
   </component>
@@ -63,9 +81,10 @@
     </state>
     <state x="982" y="334" key="run.anything.popup/0.23.2560.1369@0.23.2560.1369" timestamp="1629210556333" />
     <state x="1105" y="390" key="run.anything.popup/0.23.2880.1549@0.23.2880.1549" timestamp="1629115908889" />
-    <state x="1105" y="376" width="670" height="676" key="search.everywhere.popup" timestamp="1629124191019">
-      <screen x="0" y="0" width="2880" height="1620" />
+    <state x="982" y="334" width="670" height="601" key="search.everywhere.popup" timestamp="1632397995710">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state x="982" y="334" width="670" height="601" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1632397995710" />
     <state x="1105" y="376" width="670" height="676" key="search.everywhere.popup/0.0.2880.1620@0.0.2880.1620" timestamp="1629124191019" />
   </component>
 </project>

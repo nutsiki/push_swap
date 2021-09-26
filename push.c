@@ -1,5 +1,4 @@
 #include "push_swap.h"
-#include <stdio.h>
 
 t_piles 	*push_b(t_piles *piles)
 {
@@ -8,11 +7,11 @@ t_piles 	*push_b(t_piles *piles)
 	t_list *tmp_lstb;
 	int		tmp;
 
+	if (piles->list_a == NULL)
+		return (piles);
 	new = NULL;
 	tmp_lsta = piles->list_a;
 	tmp_lstb = NULL;
-	if (tmp_lsta == NULL)
-		return (piles);
 	tmp = piles->list_a->content;
 	if (piles->list_b)
 		tmp_lstb = piles->list_b;
@@ -20,6 +19,7 @@ t_piles 	*push_b(t_piles *piles)
 	piles->list_b = new;
 	piles->list_b->next = tmp_lstb;
 	piles->list_a = tmp_lsta->next;
+	write(1,"pa\n",3);
 	return (piles);
 }
 
@@ -30,11 +30,11 @@ t_piles 	*push_a(t_piles *piles)
 	t_list *tmp_lstb;
 	int		tmp;
 
+	if (piles->list_b == NULL)
+		return (piles);
 	new = NULL;
 	tmp_lstb = piles->list_b;
 	tmp_lsta = NULL;
-	if (tmp_lstb == NULL)
-		return (piles);
 	tmp = piles->list_b->content;
 	if (piles->list_a)
 		tmp_lsta = piles->list_a;
@@ -42,5 +42,6 @@ t_piles 	*push_a(t_piles *piles)
 	piles->list_a = new;
 	piles->list_a->next = tmp_lsta;
 	piles->list_b = tmp_lstb->next;
+	write(1,"pb\n",3);
 	return (piles);
 }
