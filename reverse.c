@@ -22,7 +22,8 @@ t_piles 	*reverse_a(t_piles *piles)
 	new = piles->list_a;
 	piles->list_a = tmp;
 	piles->list_a->next = new;
-	write(1,"rra\n",4);
+	fill_buffer_str("rra\n",piles);
+
 	return (piles);
 }
 
@@ -48,6 +49,6 @@ t_piles 	*reverse_b(t_piles *piles)
 	new = piles->list_b;
 	piles->list_b = tmp;
 	piles->list_b->next = new;
-	write(1,"rrb\n",4);
+	fill_buffer_str("rrb\n",piles);
 	return (piles);
 }

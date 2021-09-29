@@ -1,5 +1,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# define BUFFER_SIZE 1000
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
@@ -20,10 +21,18 @@ typedef struct		s_piles
 	t_list			*list_b;
 	t_list 			*sorted;
 	int 			size;
+	char 			*action;
+	int				pos;
+	int				length;
+
 }					t_piles;
+
+void	*ft_calloc(size_t count, size_t size);
+
 
 void 	afficherlist(t_list *list, char i);
 
+int		fill_buffer_str(char *str, t_piles *piles);
 
 t_list	*ft_lstnew(int content);
 

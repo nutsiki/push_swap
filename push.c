@@ -19,7 +19,7 @@ t_piles 	*push_b(t_piles *piles)
 	piles->list_b = new;
 	piles->list_b->next = tmp_lstb;
 	piles->list_a = tmp_lsta->next;
-	write(1,"pa\n",3);
+	fill_buffer_str("pb\n",piles);
 	return (piles);
 }
 
@@ -42,6 +42,6 @@ t_piles 	*push_a(t_piles *piles)
 	piles->list_a = new;
 	piles->list_a->next = tmp_lsta;
 	piles->list_b = tmp_lstb->next;
-	write(1,"pb\n",3);
+	fill_buffer_str("pa\n",piles);
 	return (piles);
 }

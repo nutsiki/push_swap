@@ -181,6 +181,9 @@ t_piles	*init_piles(void)
 	if (!piles)
 		exit(0);
 	ft_bzero(piles, sizeof(t_piles));
+	piles->action = ft_calloc(sizeof(char),BUFFER_SIZE);
+	piles->pos = 0;
+	piles->length = BUFFER_SIZE;
 	return (piles);
 }
 
@@ -290,7 +293,6 @@ int	is_already_sorted(t_piles *piles)
 	return (1);
 }
 
-
 int	main(int argc, char **argv)
 {
 	t_piles *piles;
@@ -305,8 +307,9 @@ int	main(int argc, char **argv)
 		return (1);
 	if (piles->size <= 5)
 		sort_below_five(piles);
+	printf("%s\n", piles->action);
 	afficherlist(piles->list_a, 'a');
-
+// 3 2 0 4 1     1 4 0 2 3   1 4 3 2 0
 
 
 }

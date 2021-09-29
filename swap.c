@@ -11,7 +11,7 @@ t_piles *swap_a(t_piles *piles)
 	tmp = tmp_lst->next->content;
 	tmp_lst->next->content = tmp_lst->content;
 	tmp_lst->content = tmp;
-	write(1,"sa\n",3);
+	fill_buffer_str("sa\n",piles);
 	return (piles);
 }
 
@@ -26,6 +26,6 @@ t_piles *swap_b(t_piles *piles)
 	tmp = tmp_lst->next->content;
 	tmp_lst->next->content = tmp_lst->content;
 	tmp_lst->content = tmp;
-	write(1,"sb\n",3);
+	fill_buffer_str("sb\n",piles);
 	return (piles);
 }

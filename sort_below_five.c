@@ -45,33 +45,76 @@ void	sort_four(t_piles *piles)
 		reverse_a(piles);
 }
 
+static int		ft_lstsize(t_list *lst)
+{
+	int			i;
+
+	i = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
+}
+
+t_list *find_sens(t_list *tmp, int size, t_piles *piles)
+{
+	int i;
+
+	i = 0;
+
+
+	afficherlist(piles->list_a, 'a');
+	afficherlist(piles->list_b, 'b');
+	while (tmp->content < piles->list_b->content && tmp->next != NULL)
+	{
+		printf("tmp content %d -- b content %d\n", tmp->content, piles->list_b->content);
+		tmp = tmp->next;
+		i++;
+	}
+	printf("yo\n");
+
+	printf("apres bouce tmp content %d -- b content %d\n", tmp->content, piles->list_b->content);
+	printf("i vaut %d et size vaut %d\n", i, size);
+	if (i > (size/2) || tmp->next == NULL)
+		while ((size - i))
+		{
+			printf("reverse_a\n");
+			reverse_a(piles);
+			i++;
+		}
+	else
+		while (i)
+		{
+			printf("rotate_a\n");
+			rotate_a(piles);
+			i--;
+		}
+	return (tmp);
+
+}
+
 void	sort_five(t_piles *piles)
 {
 	t_list *tmp;
 	int i;
 
-	i = piles->size;
+	i = 0;
 	tmp = piles->list_a;
-	while (tmp->content < piles->list_b->content && --piles->size)
-	{
-		rotate_a(piles);
-		tmp = tmp->next;
-	}
+	tmp = find_sens(tmp, ft_lstsize(tmp), piles);
 	push_a(piles);
 	rotate_a(piles);
-	piles->size--;
-	while (tmp->content < piles->list_b->content && --piles->size)
-	{
-		rotate_a(piles);
-		tmp = tmp->next;
-	}
+	tmp = find_sens(tmp, ft_lstsize(tmp) , piles);
 	push_a(piles);
-	if (!piles->size)
+	while (tmp->next != NULL)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	while (--i)
 		rotate_a(piles);
-	else
-		while (i-- > piles->size)
-			reverse_a(piles);
-	return ;
+		return ;
 }
 
 void	sort_below_five(t_piles *piles)

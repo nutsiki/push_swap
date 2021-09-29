@@ -12,11 +12,23 @@
     <list default="true" id="86d0dd3b-22cf-438d-953f-49f635c8b7d8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/a.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/combinaison.c" beforeDir="false" afterPath="$PROJECT_DIR$/combinaison.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/main.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/push.c" beforeDir="false" afterPath="$PROJECT_DIR$/push.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/push.o" beforeDir="false" afterPath="$PROJECT_DIR$/push.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/push_swap" beforeDir="false" afterPath="$PROJECT_DIR$/push_swap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/push_swap.h" beforeDir="false" afterPath="$PROJECT_DIR$/push_swap.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reverse.c" beforeDir="false" afterPath="$PROJECT_DIR$/reverse.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reverse.o" beforeDir="false" afterPath="$PROJECT_DIR$/reverse.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rotate.c" beforeDir="false" afterPath="$PROJECT_DIR$/rotate.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rotate.o" beforeDir="false" afterPath="$PROJECT_DIR$/rotate.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sort_3.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sort_below_five.c" beforeDir="false" afterPath="$PROJECT_DIR$/sort_below_five.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sort_below_five.o" beforeDir="false" afterPath="$PROJECT_DIR$/sort_below_five.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swap.c" beforeDir="false" afterPath="$PROJECT_DIR$/swap.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swap.o" beforeDir="false" afterPath="$PROJECT_DIR$/swap.o" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +76,9 @@
       <workItem from="1632403666837" duration="6355000" />
       <workItem from="1632416588417" duration="3389000" />
       <workItem from="1632485993625" duration="8849000" />
-      <workItem from="1632671505469" duration="8134000" />
+      <workItem from="1632671505469" duration="9281000" />
+      <workItem from="1632742852162" duration="4289000" />
+      <workItem from="1632915638429" duration="12609000" />
     </task>
     <servers />
   </component>
@@ -72,6 +86,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1157" y="610" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1632922600129">
+      <screen x="0" y="0" width="2880" height="1620" />
+    </state>
+    <state x="1157" y="610" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2880.1620@0.0.2880.1620" timestamp="1632922600129" />
     <state x="982" y="459" width="596" height="522" key="find.popup" timestamp="1629209976348">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
@@ -81,10 +99,10 @@
     </state>
     <state x="982" y="334" key="run.anything.popup/0.23.2560.1369@0.23.2560.1369" timestamp="1629210556333" />
     <state x="1105" y="390" key="run.anything.popup/0.23.2880.1549@0.23.2880.1549" timestamp="1629115908889" />
-    <state x="982" y="334" width="670" height="601" key="search.everywhere.popup" timestamp="1632397995710">
-      <screen x="0" y="0" width="2560" height="1440" />
+    <state x="1105" y="376" width="670" height="676" key="search.everywhere.popup" timestamp="1632748323348">
+      <screen x="0" y="0" width="2880" height="1620" />
     </state>
     <state x="982" y="334" width="670" height="601" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1632397995710" />
-    <state x="1105" y="376" width="670" height="676" key="search.everywhere.popup/0.0.2880.1620@0.0.2880.1620" timestamp="1629124191019" />
+    <state x="1105" y="376" width="670" height="676" key="search.everywhere.popup/0.0.2880.1620@0.0.2880.1620" timestamp="1632748323348" />
   </component>
 </project>
