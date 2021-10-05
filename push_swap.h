@@ -28,6 +28,9 @@ typedef struct		s_piles
 }					t_piles;
 
 void	*ft_calloc(size_t count, size_t size);
+int 	find_min(t_piles *piles, int i, int j);
+
+void	algo_100(t_piles *piles);
 
 
 void 	afficherlist(t_list *list, char i);

@@ -307,9 +307,18 @@ int	main(int argc, char **argv)
 		return (1);
 	if (piles->size <= 5)
 		sort_below_five(piles);
+	else if (piles->size == 100)
+		algo_100(piles);
+	int i = 0;
+	char *str;
+	str = piles->action;
+	while (str && *str)
+	{
+		if (*str == '\n')
+			i++;
+		str++;
+	}
+	printf("cpt = %d\n", i); // 2 3 4 1 0
 	printf("%s\n", piles->action);
 	afficherlist(piles->list_a, 'a');
-// 3 2 0 4 1     1 4 0 2 3   1 4 3 2 0
-
-
 }
