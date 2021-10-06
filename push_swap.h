@@ -31,6 +31,7 @@ void	*ft_calloc(size_t count, size_t size);
 int 	find_min(t_piles *piles, int i, int j);
 
 void	algo_100(t_piles *piles);
+int		ft_lstsize(t_list *lst);
 
 
 void 	afficherlist(t_list *list, char i);

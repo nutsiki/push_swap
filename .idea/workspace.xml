@@ -11,13 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="86d0dd3b-22cf-438d-953f-49f635c8b7d8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/algo_100.c" beforeDir="false" afterPath="$PROJECT_DIR$/algo_100.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/push_swap.h" beforeDir="false" afterPath="$PROJECT_DIR$/push_swap.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sort_below_five.c" beforeDir="false" afterPath="$PROJECT_DIR$/sort_below_five.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test1.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +22,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ClangdSettings">
+    <option name="clangTidyViaClangd" value="false" />
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="Git.Settings">
@@ -73,7 +71,8 @@
       <workItem from="1633090985643" duration="10620000" />
       <workItem from="1633113500318" duration="124000" />
       <workItem from="1633113628399" duration="3000" />
-      <workItem from="1633432746890" duration="8993000" />
+      <workItem from="1633432746890" duration="11065000" />
+      <workItem from="1633525397890" duration="8772000" />
     </task>
     <servers />
   </component>

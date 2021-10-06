@@ -319,6 +319,8 @@ int	main(int argc, char **argv)
 		str++;
 	}
 	printf("cpt = %d\n", i); // 2 3 4 1 0
-	printf("%s\n", piles->action);
-	afficherlist(piles->list_a, 'a');
+//	printf("%s\n", piles->action);
+//	afficherlist(piles->list_a, 'a');
+//	afficherlist(piles->list_b, 'b');
+//	afficherlist(piles->sorted, 'c');
 }
