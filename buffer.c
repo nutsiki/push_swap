@@ -20,7 +20,7 @@ t_piles 	*more_size(t_piles *piles)
 
 	new_buff = piles->action;
 	piles->length += BUFFER_SIZE;
-	piles->action = (char*)calloc(sizeof(char), piles->length);
+	piles->action = (char*)ft_calloc(sizeof(char), piles->length);
 	if(!(piles->action))
 		return (NULL);
 	piles->action = ft_memcpy(piles->action, new_buff, piles->pos);

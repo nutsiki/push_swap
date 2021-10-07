@@ -293,6 +293,39 @@ int	is_already_sorted(t_piles *piles)
 	return (1);
 }
 
+int		ft_strcmp(const char *s1, const char *s2)
+{
+	unsigned char *ps1;
+	unsigned char *ps2;
+
+	ps1 = (unsigned char *)s1;
+	ps2 = (unsigned char *)s2;
+	while (*ps1 != '\0' && *ps2 != '\0' && *ps1 == *ps2)
+	{
+		ps1++;
+		ps2++;
+	}
+	return (*ps1 - *ps2);
+}
+
+//void	clean_action(t_piles *piles)
+//{
+//	char *str;
+//	char *tmp;
+//	char *buffer;
+//
+//	buffer = ft_calloc(sizeof(char ), 4);
+//	str = piles->action;
+//	while (str && *str)
+//	{
+//		while (*str != '\n')
+//			*buffer++ = *str++;
+//		if (ft_strcmp(buffer, ))
+//	}
+//	return ;
+//}
+
+
 int	main(int argc, char **argv)
 {
 	t_piles *piles;
@@ -309,6 +342,7 @@ int	main(int argc, char **argv)
 		sort_below_five(piles);
 	else if (piles->size == 100)
 		algo_100(piles);
+//	clean_action(piles);
 	int i = 0;
 	char *str;
 	str = piles->action;
@@ -318,9 +352,10 @@ int	main(int argc, char **argv)
 			i++;
 		str++;
 	}
+	afficherlist(piles->list_b, 'b');
+	afficherlist(piles->list_a, 'a');
+//	afficherlist(piles->sorted, 'c');
 	printf("cpt = %d\n", i); // 2 3 4 1 0
 //	printf("%s\n", piles->action);
-//	afficherlist(piles->list_a, 'a');
-//	afficherlist(piles->list_b, 'b');
-//	afficherlist(piles->sorted, 'c');
+
 }

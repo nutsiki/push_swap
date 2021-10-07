@@ -32,6 +32,13 @@ int 	find_min(t_piles *piles, int i, int j);
 
 void	algo_100(t_piles *piles);
 int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+
+void 	before_push_b(t_piles *piles, int size);
+void	sort_three(t_piles *piles);
+
+
+
 
 
 void 	afficherlist(t_list *list, char i);
