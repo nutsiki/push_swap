@@ -12,7 +12,6 @@
     <list default="true" id="86d0dd3b-22cf-438d-953f-49f635c8b7d8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/algo_100.c" beforeDir="false" afterPath="$PROJECT_DIR$/algo_100.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buffer.c" beforeDir="false" afterPath="$PROJECT_DIR$/buffer.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/push_swap.h" beforeDir="false" afterPath="$PROJECT_DIR$/push_swap.h" afterDir="false" />
     </list>
@@ -74,7 +73,8 @@
       <workItem from="1633432746890" duration="11065000" />
       <workItem from="1633525397890" duration="8880000" />
       <workItem from="1633600254380" duration="4414000" />
-      <workItem from="1633606805872" duration="10823000" />
+      <workItem from="1633606805872" duration="10933000" />
+      <workItem from="1633685789835" duration="11312000" />
     </task>
     <servers />
   </component>

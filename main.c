@@ -308,22 +308,171 @@ int		ft_strcmp(const char *s1, const char *s2)
 	return (*ps1 - *ps2);
 }
 
-//void	clean_action(t_piles *piles)
-//{
-//	char *str;
-//	char *tmp;
-//	char *buffer;
-//
-//	buffer = ft_calloc(sizeof(char ), 4);
-//	str = piles->action;
-//	while (str && *str)
-//	{
-//		while (*str != '\n')
-//			*buffer++ = *str++;
-//		if (ft_strcmp(buffer, ))
-//	}
-//	return ;
-//}
+char	*ft_strcpy(char *dest, const char *src)
+{
+	char *p;
+	char *srcc;
+
+	p = dest;
+	srcc = (char *)src;
+	while (*srcc)
+		*p++ = *srcc++;
+	*p = '\0';
+	return (dest);
+}
+
+void	write_action(int k, int j, char buffer[4])
+{
+	int i;
+	char action[1];
+
+	i = 0;
+	action[0] = '\0';
+	if (!k && j == 1)
+		write(1,buffer,4);
+	else
+	{
+		while (k-- && j-- && buffer[i] != 'a' && buffer[i] != 'b')
+		{
+			action[0] = buffer[i];
+			write(1, action, 1);
+			i++;
+
+		}
+		write(1, action, 1);
+	}
+	write(1, "\n", 1);
+}
+
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+{
+	char			*ph;
+	char			*pn;
+	char			*p;
+	unsigned int	i;
+
+	ph = (char *)haystack;
+	p = (char *)haystack;
+	if (*needle == 0)
+		return (p);
+	while (len--)
+	{
+		ph = p;
+		pn = (char *)needle;
+		while (*ph == *pn && i--)
+		{
+			pn++;
+			ph++;
+			if (*pn == '\0')
+				return (p);
+		}
+		i = len;
+		p++;
+	}
+	return (NULL);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	char *ps;
+
+	ps = (char*)s;
+	while (1)
+	{
+		if (*ps == (char)c)
+			return (ps);
+		if (!*ps)
+			break ;
+		ps++;
+	}
+	return (NULL);
+}
+
+int		ft_strncmp(const char *s1, const char *s2, unsigned int n)
+{
+	unsigned int	i;
+	unsigned char	*ps1;
+	unsigned char	*ps2;
+
+	ps1 = (unsigned char *)s1;
+	ps2 = (unsigned char *)s2;
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (ps1[i] != '\0' && ps2[i] != '\0' && i < n - 1 && ps1[i] == ps2[i])
+	{
+		i++;
+	}
+	return (ps1[i] - ps2[i]);
+}
+
+void	write_fusion(int k, int j, char buffer[4])
+{
+	int i;
+	char action[1];
+
+	i = 0;
+	action[0] = '\0';
+	if (!k && j == 1)
+		write(1,buffer,4);
+	else
+	{
+		while (k-- && j-- && buffer[i] != 'a' && buffer[i] != 'b')
+		{
+			action[0] = buffer[i];
+			write(1, action, 1);
+			i++;
+
+		}
+		write(1, action, 1);
+	}
+	write(1, "\n", 1);
+}
+
+void	clean_action(t_piles *piles)
+{
+	int cpt;
+	int old_cpt;
+	char previous[4];
+	int i;
+
+	i = 0;
+	cpt = 1;
+	old_cpt = 0;
+	while (piles->action)
+	{
+		if (!ft_strncmp(piles->action, previous, 3))
+			cpt++;
+		else if (!old_cpt && previous[0] != *piles->action)
+		{
+			printf("yo %d\n", cpt);
+
+//			while (cpt--)
+//			{
+//				printf("yo %d\n", cpt);
+//				write(1, previous, 4);
+//			}
+			cpt = 1;
+		}
+		else if (strncmp(piles->action, previous, 3) == -1 || strncmp(piles->action, previous, 3) == 1)
+		{
+			old_cpt = cpt;
+			cpt = 1;
+		}
+		else if (old_cpt)
+		{
+			write_fusion(cpt, old_cpt, previous);
+			old_cpt = 0;
+			cpt = 1;
+		}
+		while (*piles->action != '\n')
+			previous[i++] = *piles->action++;
+		previous[i] = '\n';
+		piles->action++;
+	}
+
+	return ;
+}
 
 
 int	main(int argc, char **argv)
@@ -342,7 +491,9 @@ int	main(int argc, char **argv)
 		sort_below_five(piles);
 	else if (piles->size == 100)
 		algo_100(piles);
-//	clean_action(piles);
+	else if (piles->size == 500)
+		algo_500(piles);
+	clean_action(piles);
 	int i = 0;
 	char *str;
 	str = piles->action;
@@ -352,10 +503,10 @@ int	main(int argc, char **argv)
 			i++;
 		str++;
 	}
-	afficherlist(piles->list_b, 'b');
-	afficherlist(piles->list_a, 'a');
+//	afficherlist(piles->list_b, 'b');
+//	afficherlist(piles->list_a, 'a');
 //	afficherlist(piles->sorted, 'c');
 	printf("cpt = %d\n", i); // 2 3 4 1 0
-//	printf("%s\n", piles->action);
+	printf("%s\n", piles->action);
 
 }
