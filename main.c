@@ -433,42 +433,45 @@ void	clean_action(t_piles *piles)
 {
 	int cpt;
 	int old_cpt;
-	char previous[4];
-	int i;
+	char *previous;
+	char *str;
 
-	i = 0;
 	cpt = 1;
 	old_cpt = 0;
-	while (piles->action)
+	str = NULL;
+	previous = NULL;
+	while (*piles->action)
 	{
-		if (!ft_strncmp(piles->action, previous, 3))
+		if (str && !ft_strncmp(piles->action, str, 3))
 			cpt++;
-		else if (!old_cpt && previous[0] != *piles->action)
+		else if (str && !old_cpt && (*str != *piles->action || *piles->action == 'p'))
 		{
-			printf("yo %d\n", cpt);
-
-//			while (cpt--)
-//			{
-//				printf("yo %d\n", cpt);
-//				write(1, previous, 4);
-//			}
+			while (cpt--)
+				write(1, str, 4);
 			cpt = 1;
 		}
-		else if (strncmp(piles->action, previous, 3) == -1 || strncmp(piles->action, previous, 3) == 1)
+		else if (str && (strncmp(piles->action, str, 3) == -1 || strncmp(piles->action, str, 3) == 1))
 		{
 			old_cpt = cpt;
 			cpt = 1;
+
 		}
 		else if (old_cpt)
 		{
-			write_fusion(cpt, old_cpt, previous);
+			write_fusion(cpt, old_cpt, str);
 			old_cpt = 0;
 			cpt = 1;
 		}
-		while (*piles->action != '\n')
-			previous[i++] = *piles->action++;
-		previous[i] = '\n';
+		if (str && *str)
+			free(str);
+		previous = ft_calloc(sizeof(char), 5);
+		str = previous;
+		while (piles->action && *piles->action != '\n')
+			*previous++ = *piles->action++;
+		*previous = '\n';
+//		printf("%s\n", str);
 		piles->action++;
+
 	}
 
 	return ;
