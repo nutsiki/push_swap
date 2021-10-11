@@ -187,22 +187,6 @@ t_piles	*init_piles(void)
 	return (piles);
 }
 
-void 	afficherlist(t_list *list, char i)
-{
-	t_list *list_tmp;
-	int cpt;
-
-	list_tmp = list;
-	cpt = 0;
-	while (list_tmp != NULL)
-	{
-		printf("element[%d] de list_%c = %d\n", cpt, i, list_tmp->content);
-		list_tmp = list_tmp->next;
-		cpt++;
-	}
-	printf("-------------------------------\n");
-}
-
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
@@ -293,21 +277,6 @@ int	is_already_sorted(t_piles *piles)
 	return (1);
 }
 
-int		ft_strcmp(const char *s1, const char *s2)
-{
-	unsigned char *ps1;
-	unsigned char *ps2;
-
-	ps1 = (unsigned char *)s1;
-	ps2 = (unsigned char *)s2;
-	while (*ps1 != '\0' && *ps2 != '\0' && *ps1 == *ps2)
-	{
-		ps1++;
-		ps2++;
-	}
-	return (*ps1 - *ps2);
-}
-
 char	*ft_strcpy(char *dest, const char *src)
 {
 	char *p;
@@ -344,50 +313,6 @@ void	write_action(int k, int j, char buffer[4])
 	write(1, "\n", 1);
 }
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
-{
-	char			*ph;
-	char			*pn;
-	char			*p;
-	unsigned int	i;
-
-	ph = (char *)haystack;
-	p = (char *)haystack;
-	if (*needle == 0)
-		return (p);
-	while (len--)
-	{
-		ph = p;
-		pn = (char *)needle;
-		while (*ph == *pn && i--)
-		{
-			pn++;
-			ph++;
-			if (*pn == '\0')
-				return (p);
-		}
-		i = len;
-		p++;
-	}
-	return (NULL);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	char *ps;
-
-	ps = (char*)s;
-	while (1)
-	{
-		if (*ps == (char)c)
-			return (ps);
-		if (!*ps)
-			break ;
-		ps++;
-	}
-	return (NULL);
-}
-
 int		ft_strncmp(const char *s1, const char *s2, unsigned int n)
 {
 	unsigned int	i;
@@ -405,6 +330,77 @@ int		ft_strncmp(const char *s1, const char *s2, unsigned int n)
 	}
 	return (ps1[i] - ps2[i]);
 }
+void	rrr_fusion(int cpt, int old_cpt, char *buffer)
+{
+	while (cpt && old_cpt)
+	{
+		write(1,"rrr\n", 4);
+		cpt--;
+		old_cpt--;
+	}
+	if (*(buffer + 2) == 'a')
+	{
+		while (cpt--)
+			write(1, buffer, 4);
+		while (old_cpt--)
+			write(1, "rrb\n",4);
+	}
+	else
+	{
+		while (cpt--)
+			write(1, buffer, 4);
+		while (old_cpt--)
+			write(1, "rra\n",4);
+	}
+}
+
+void	ss_fusion(int cpt, int old_cpt, char *buffer)
+{
+	while (cpt && old_cpt)
+	{
+		write(1, "ss\n", 3);
+		cpt--;
+		old_cpt--;
+	}
+	if (*(buffer + 1) == 'a')
+	{
+		while (cpt--)
+			write(1, buffer, 3);
+		while (old_cpt--)
+			write(1, "sb\n",3);
+	}
+	else
+	{
+		while (cpt--)
+			write(1, buffer, 3);
+		while (old_cpt--)
+			write(1, "sa\n",3);
+	}
+}
+
+void	rr_fusion(int cpt, int old_cpt, char *buffer)
+{
+	while (cpt && old_cpt)
+	{
+		write(1, "rr\n", 3);
+		cpt--;
+		old_cpt--;
+	}
+	if (*(buffer + 1) == 'a')
+	{
+		while (cpt--)
+			write(1, buffer, 3);
+		while (old_cpt--)
+			write(1, "rb\n",3);
+	}
+	else
+	{
+		while (cpt--)
+			write(1, buffer, 3);
+		while (old_cpt--)
+			write(1, "ra\n",3);
+	}
+}
 
 void	write_fusion(int cpt, int old_cpt, char *buffer)
 {
@@ -412,123 +408,72 @@ void	write_fusion(int cpt, int old_cpt, char *buffer)
 
 	action = *buffer;
 	if (*buffer == *(buffer + 1))
-	{
-		while (cpt && old_cpt)
-		{
-			write(1,"rrr\n", 4);
-			cpt--;
-			old_cpt--;
-		}
-		if (*(buffer + 2) == 'a')
-		{
-			while (cpt--)
-				write(1, buffer, 4);
-			while (old_cpt--)
-				write(1, "rrb\n",4);
-		}
-		else
-		{
-			while (cpt--)
-				write(1, buffer, 4);
-			while (old_cpt--)
-				write(1, "rra\n",4);
-		}
-	}
+		rrr_fusion(cpt, old_cpt, buffer);
 	else if (action == 's')
-	{
-		while (cpt && old_cpt)
-		{
-			write(1, "ss\n", 3);
-			cpt--;
-			old_cpt--;
-		}
-		if (*(buffer + 1) == 'a')
-		{
-			while (cpt--)
-				write(1, buffer, 3);
-			while (old_cpt--)
-				write(1, "sb\n",3);
-		}
-		else
-		{
-			while (cpt--)
-				write(1, buffer, 3);
-			while (old_cpt--)
-				write(1, "sa\n",3);
-		}
-	}
+		ss_fusion(cpt, old_cpt, buffer);
 	else if (action == 'r')
+		rr_fusion(cpt, old_cpt, buffer);
+}
+
+char	*make_previous(t_piles *piles, char *str)
+{
+	char	*previous;
+
+	if (str && *str)
+		free(str);
+	previous = ft_calloc(sizeof(char), 5);
+	str = previous;
+	while (piles->action && *piles->action != '\n')
+		*previous++ = *piles->action++;
+	*previous = '\n';
+	piles->action++;
+	return (str);
+}
+
+int find_fusion(t_piles *piles, char *str, int cpt, int *old_cpt)
+{
+	if (str && !*old_cpt && (*str != *piles->action || *piles->action == 'p' || (*(str + 1) == 'r' && *(piles->action + 1) != 'r')  || ((*(piles->action + 1) == 'r' && *(str + 1) != 'r'))))
 	{
-		while (cpt && old_cpt)
-		{
-			write(1, "rr\n", 3);
-			cpt--;
-			old_cpt--;
-		}
-		if (*(buffer + 1) == 'a')
-		{
-			while (cpt--)
-				write(1, buffer, 3);
-			while (old_cpt--)
-				write(1, "rb\n",3);
-		}
-		else
-		{
-			while (cpt--)
-				write(1, buffer, 3);
-			while (old_cpt--)
-				write(1, "ra\n",3);
-		}
+		while (cpt--)
+			write(1, str, ft_strlen(str));
+		cpt = 1;
 	}
+	else if (str && (strncmp(piles->action, str, 3) == -1 || strncmp(piles->action, str, 3) == 1) && (*piles->action == *str))
+	{
+		*old_cpt = cpt;
+		cpt = 1;
+	}
+	else if (*old_cpt)
+	{
+		write_fusion(cpt, *old_cpt, str);
+		*old_cpt = 0;
+		cpt = 1;
+	}
+	return (cpt);
 }
 
 void	clean_action(t_piles *piles)
 {
 	int cpt;
 	int old_cpt;
-	char *previous;
 	char *str;
 
 	cpt = 1;
 	old_cpt = 0;
 	str = NULL;
-	previous = NULL;
-//	piles->action = "rra\npb\nra\npb\nrb\npb\nrra\nrra\nrra\nrrb\npb\nrra\nrra\nrra\nrra\nrra\nrra\nrra\nrra\nrra\nrb\npb\nrra\nrra\nrra\nrra\nrra\nrra\nrra\nrra\npb\nrra\nrra\nrrb\nrrb\npb";
 	while (*piles->action)
 	{
-//		printf("cpt vaut %d old vaut %d str vaut %s\n", cpt, old_cpt, str);
 		if (str && !ft_strncmp(piles->action, str, 3))
 			cpt++;
-		else if (str && !old_cpt && (*str != *piles->action || *piles->action == 'p'))
-		{
-//			printf("str vaut %s\n", str);
-			while (cpt--)
-				write(1, str, ft_strlen(str));
-			cpt = 1;
-		}
-		else if (str && (strncmp(piles->action, str, 3) == -1 || strncmp(piles->action, str, 3) == 1) && (*piles->action == *str))
-		{
-			old_cpt = cpt;
-			cpt = 1;
-		}
-		else if (old_cpt)
-		{
-			write_fusion(cpt, old_cpt, str);
-			old_cpt = 0;
-			cpt = 1;
-		}
-		if (str && *str)
-			free(str);
-		previous = ft_calloc(sizeof(char), 5);
-		str = previous;
-		while (piles->action && *piles->action != '\n')
-			*previous++ = *piles->action++;
-		*previous = '\n';
-		piles->action++;
+		else
+			cpt = find_fusion(piles, str, cpt, &old_cpt);
+		str = make_previous(piles, str);
 		if (!*piles->action)
 			while (cpt--)
 				write(1, str, 3);
 	}
+	if (str && *str)
+		free(str);
 	return ;
 }
 
@@ -551,7 +496,5 @@ int	main(int argc, char **argv)
 		algo_100(piles);
 	else if (piles->size == 500)
 		algo_500(piles);
-//	printf("action\n%s\n", piles->action);
 	clean_action(piles);
-//	afficherlist(piles->list_a, 'a');
 }
