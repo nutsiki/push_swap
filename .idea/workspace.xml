@@ -74,6 +74,7 @@
       <workItem from="1633606805872" duration="10933000" />
       <workItem from="1633685789835" duration="12553000" />
       <workItem from="1633771287939" duration="4814000" />
+      <workItem from="1633956526203" duration="9112000" />
     </task>
     <servers />
   </component>
@@ -81,6 +82,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="705" y="371" key="#Notifications" timestamp="1633964769971">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="705" y="371" key="#Notifications/0.0.1920.1080@0.0.1920.1080" timestamp="1633964769971" />
     <state x="1157" y="610" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1632922600129">
       <screen x="0" y="0" width="2880" height="1620" />
     </state>
@@ -89,6 +94,10 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="982" y="459" width="596" height="522" key="find.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1629209976348" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1633964966757">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="600" height="428" key="javadoc.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1633964966757" />
     <state x="982" y="334" key="run.anything.popup" timestamp="1629210556333">
       <screen x="0" y="23" width="2560" height="1369" />
     </state>

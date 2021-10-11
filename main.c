@@ -406,27 +406,80 @@ int		ft_strncmp(const char *s1, const char *s2, unsigned int n)
 	return (ps1[i] - ps2[i]);
 }
 
-void	write_fusion(int k, int j, char buffer[4])
+void	write_fusion(int cpt, int old_cpt, char *buffer)
 {
-	int i;
-	char action[1];
+	char action;
 
-	i = 0;
-	action[0] = '\0';
-	if (!k && j == 1)
-		write(1,buffer,4);
-	else
+	action = *buffer;
+	if (*buffer == *(buffer + 1))
 	{
-		while (k-- && j-- && buffer[i] != 'a' && buffer[i] != 'b')
+		while (cpt && old_cpt)
 		{
-			action[0] = buffer[i];
-			write(1, action, 1);
-			i++;
-
+			write(1,"rrr\n", 4);
+			cpt--;
+			old_cpt--;
 		}
-		write(1, action, 1);
+		if (*(buffer + 2) == 'a')
+		{
+			while (cpt--)
+				write(1, buffer, 4);
+			while (old_cpt--)
+				write(1, "rrb\n",4);
+		}
+		else
+		{
+			while (cpt--)
+				write(1, buffer, 4);
+			while (old_cpt--)
+				write(1, "rra\n",4);
+		}
 	}
-	write(1, "\n", 1);
+	else if (action == 's')
+	{
+		while (cpt && old_cpt)
+		{
+			write(1, "ss\n", 3);
+			cpt--;
+			old_cpt--;
+		}
+		if (*(buffer + 1) == 'a')
+		{
+			while (cpt--)
+				write(1, buffer, 3);
+			while (old_cpt--)
+				write(1, "sb\n",3);
+		}
+		else
+		{
+			while (cpt--)
+				write(1, buffer, 3);
+			while (old_cpt--)
+				write(1, "sa\n",3);
+		}
+	}
+	else if (action == 'r')
+	{
+		while (cpt && old_cpt)
+		{
+			write(1, "rr\n", 3);
+			cpt--;
+			old_cpt--;
+		}
+		if (*(buffer + 1) == 'a')
+		{
+			while (cpt--)
+				write(1, buffer, 3);
+			while (old_cpt--)
+				write(1, "rb\n",3);
+		}
+		else
+		{
+			while (cpt--)
+				write(1, buffer, 3);
+			while (old_cpt--)
+				write(1, "ra\n",3);
+		}
+	}
 }
 
 void	clean_action(t_piles *piles)
@@ -440,21 +493,23 @@ void	clean_action(t_piles *piles)
 	old_cpt = 0;
 	str = NULL;
 	previous = NULL;
+//	piles->action = "rra\npb\nra\npb\nrb\npb\nrra\nrra\nrra\nrrb\npb\nrra\nrra\nrra\nrra\nrra\nrra\nrra\nrra\nrra\nrb\npb\nrra\nrra\nrra\nrra\nrra\nrra\nrra\nrra\npb\nrra\nrra\nrrb\nrrb\npb";
 	while (*piles->action)
 	{
+//		printf("cpt vaut %d old vaut %d str vaut %s\n", cpt, old_cpt, str);
 		if (str && !ft_strncmp(piles->action, str, 3))
 			cpt++;
 		else if (str && !old_cpt && (*str != *piles->action || *piles->action == 'p'))
 		{
+//			printf("str vaut %s\n", str);
 			while (cpt--)
-				write(1, str, 4);
+				write(1, str, ft_strlen(str));
 			cpt = 1;
 		}
-		else if (str && (strncmp(piles->action, str, 3) == -1 || strncmp(piles->action, str, 3) == 1))
+		else if (str && (strncmp(piles->action, str, 3) == -1 || strncmp(piles->action, str, 3) == 1) && (*piles->action == *str))
 		{
 			old_cpt = cpt;
 			cpt = 1;
-
 		}
 		else if (old_cpt)
 		{
@@ -469,11 +524,11 @@ void	clean_action(t_piles *piles)
 		while (piles->action && *piles->action != '\n')
 			*previous++ = *piles->action++;
 		*previous = '\n';
-//		printf("%s\n", str);
 		piles->action++;
-
+		if (!*piles->action)
+			while (cpt--)
+				write(1, str, 3);
 	}
-
 	return ;
 }
 
@@ -496,20 +551,7 @@ int	main(int argc, char **argv)
 		algo_100(piles);
 	else if (piles->size == 500)
 		algo_500(piles);
+//	printf("action\n%s\n", piles->action);
 	clean_action(piles);
-	int i = 0;
-	char *str;
-	str = piles->action;
-	while (str && *str)
-	{
-		if (*str == '\n')
-			i++;
-		str++;
-	}
-//	afficherlist(piles->list_b, 'b');
 //	afficherlist(piles->list_a, 'a');
-//	afficherlist(piles->sorted, 'c');
-	printf("cpt = %d\n", i); // 2 3 4 1 0
-	printf("%s\n", piles->action);
-
 }
