@@ -12,6 +12,7 @@
     <list default="true" id="86d0dd3b-22cf-438d-953f-49f635c8b7d8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +75,7 @@
       <workItem from="1633606805872" duration="10933000" />
       <workItem from="1633685789835" duration="12553000" />
       <workItem from="1633771287939" duration="4814000" />
-      <workItem from="1633956526203" duration="9112000" />
+      <workItem from="1633956526203" duration="9738000" />
     </task>
     <servers />
   </component>
@@ -86,10 +87,15 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="705" y="371" key="#Notifications/0.0.1920.1080@0.0.1920.1080" timestamp="1633964769971" />
-    <state x="1157" y="610" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1632922600129">
-      <screen x="0" y="0" width="2880" height="1620" />
+    <state x="720" y="422" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1633969311249">
+      <screen x="0" y="0" width="1792" height="1120" />
     </state>
+    <state x="720" y="422" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1633969311249" />
     <state x="1157" y="610" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2880.1620@0.0.2880.1620" timestamp="1632922600129" />
+    <state x="873" y="0" width="842" height="1120" key="dock-window-1" timestamp="1633969852424">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state x="873" y="0" width="842" height="1120" key="dock-window-1/0.23.1792.1017@0.23.1792.1017" timestamp="1633969852424" />
     <state x="982" y="459" width="596" height="522" key="find.popup" timestamp="1629209976348">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
